@@ -1,0 +1,1432 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="data:," />
+    <title>TYPE FEVER（タイプフィーバー）｜ド派手タイピング - 60秒で遊べる無料タイピングゲーム【ホームポジション練習】</title>
+    <meta name="description" content="TYPE FEVER（タイプフィーバー）は、打つたびに花火と雷が走る60秒タイムアタックの「ド派手タイピング」ゲーム。コンボを繋いでFEVERモードを点火しながら、正しいホームポジションと指づかいが自然に身につきます。PCブラウザで無料・登録不要、ダウンロードなしで今すぐ遊べます。" />
+    <meta name="keywords" content="TYPE FEVER,タイプフィーバー,ド派手タイピング,ドハデタイピング,タイピングゲーム,タイピング 練習,60秒タイピング,ホームポジション,タイピング 無料,ブラウザゲーム,PCタイピング,ローマ字タイピング" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="TYPE FEVER" />
+    <!-- 公開先のURLが決まったら、canonical と og:url の href/content をその絶対URLに差し替えてください -->
+    <link rel="canonical" href="https://d-inginc.github.io/type-fever/type-fever/" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TYPE FEVER ド派手タイピング" />
+    <meta property="og:title" content="TYPE FEVER（タイプフィーバー）｜ド派手タイピング - 60秒で遊べる無料タイピングゲーム" />
+    <meta property="og:description" content="打つたびに花火と雷が走る60秒タイピングゲーム。コンボでFEVERを点火しながらホームポジションが学べる、PCブラウザで無料・登録不要のタイピング練習ゲームです。" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="https://d-inginc.github.io/type-fever/type-fever/" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="TYPE FEVER（タイプフィーバー）｜ド派手タイピング" />
+    <meta name="twitter:description" content="60秒タイムアタックの無料タイピングゲーム。花火とFEVERコンボで楽しくホームポジション練習。PCブラウザで登録不要。" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "TYPE FEVER ド派手タイピング",
+      "alternateName": ["タイプフィーバー", "TYPE FEVER", "ド派手タイピング", "ドハデタイピング"],
+      "description": "60秒タイムアタック形式の無料タイピングゲーム。正打のたびに花火・雷・メロディが走り、コンボを繋ぐとFEVER、HYPER、GOD MODEへと進化。次に押すキーと使う指をガイドするので、ホームポジションと正しい指づかいが遊びながら身につきます。英単語モードと日本語ローマ字モードを収録。",
+      "genre": ["タイピングゲーム", "タイピング練習", "アーケード"],
+      "gamePlatform": "Web browser",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web browser",
+      "inLanguage": "ja",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "JPY",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <style>
+      button, [role="button"] { min-height: 2.25rem; }
+      * { box-sizing: border-box; }
+      :root {
+        --bg: #06070f;
+        --panel: #101222;
+        --panel2: #161832;
+        --line: #2a2d52;
+        --ink: #eef0ff;
+        --dim: #9aa0c7;
+        --cyan: #22d3ee;
+        --magenta: #f471d8;
+        --amber: #ffc53d;
+        --green: #4ade80;
+        --red: #fb4d6d;
+        --gold: #ffd94a;
+      }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(900px 500px at 8% -10%, #14204a 0%, transparent 55%),
+          radial-gradient(900px 500px at 92% -10%, #3a0f38 0%, transparent 55%),
+          radial-gradient(700px 420px at 50% 115%, #1b1e3f 0%, transparent 60%),
+          var(--bg);
+        color: var(--ink);
+        font-family: "Noto Sans JP", system-ui, sans-serif;
+        overflow-x: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      body::before {
+        content: "";
+        position: fixed; inset: 0;
+        background-image:
+          linear-gradient(rgba(90,100,200,.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(90,100,200,.06) 1px, transparent 1px);
+        background-size: 44px 44px;
+        pointer-events: none;
+        z-index: 0;
+      }
+      body.fever { background:
+          radial-gradient(900px 500px at 8% -10%, #4a1030 0%, transparent 55%),
+          radial-gradient(900px 500px at 92% -10%, #4a1030 0%, transparent 55%),
+          radial-gradient(700px 420px at 50% 115%, #3d2a00 0%, transparent 60%),
+          #0d0510; }
+      body.god { background:
+          radial-gradient(900px 520px at 8% -10%, #5a3a00 0%, transparent 55%),
+          radial-gradient(900px 520px at 92% -10%, #5a1a00 0%, transparent 55%),
+          radial-gradient(700px 420px at 50% 115%, #4a2a00 0%, transparent 60%),
+          #120a02; }
+
+      /* ===== Always-on neon side rails (FX live in the gutters, never over the words) ===== */
+      .sideRail { position: fixed; top: 0; bottom: 0; width: 54px; z-index: 1; pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 14px 0 64px; }
+      .sideRail.left { left: 0; } .sideRail.right { right: 0; }
+      .neonTube { width: 7px; flex: 1; border-radius: 99px; margin: 10px 0;
+        background: var(--cyan); box-shadow: 0 0 16px var(--cyan), 0 0 42px var(--cyan);
+        animation: neonCycle 7s linear infinite, neonFlicker 4.2s steps(1) infinite; }
+      .sideRail.right .neonTube { animation-delay: -3.5s, -1.3s; }
+      @keyframes neonCycle { 0% { background:#22d3ee; box-shadow:0 0 16px #22d3ee,0 0 42px #22d3ee; } 25% { background:#f471d8; box-shadow:0 0 16px #f471d8,0 0 42px #f471d8; } 50% { background:#ffc53d; box-shadow:0 0 16px #ffc53d,0 0 42px #ffc53d; } 75% { background:#4ade80; box-shadow:0 0 16px #4ade80,0 0 42px #4ade80; } 100% { background:#22d3ee; box-shadow:0 0 16px #22d3ee,0 0 42px #22d3ee; } }
+      @keyframes neonFlicker { 0%,93%,95.5%,100% { opacity: 1; } 94%,95% { opacity: .35; } }
+      .railDot { width: 13px; height: 13px; border-radius: 50%; background: var(--magenta); box-shadow: 0 0 14px var(--magenta), 0 0 30px var(--magenta); animation: pulse .7s infinite alternate; }
+      .sideRail.right .railDot { background: var(--amber); box-shadow: 0 0 14px var(--amber), 0 0 30px var(--amber); }
+      .cannon { width: 34px; height: 26px; border-radius: 6px 6px 2px 2px; background: linear-gradient(180deg,#23244d,#12132b); border: 1px solid var(--line); position: relative; }
+      .cannon::before { content:""; position:absolute; left:50%; top:-13px; transform:translateX(-50%); width:9px; height:14px; border-radius:4px 4px 0 0; background:#2c2e5c; border:1px solid var(--line); }
+      .cannon::after { content:""; position:absolute; left:50%; top:-16px; transform:translateX(-50%); width:5px; height:5px; border-radius:50%; background: var(--amber); box-shadow:0 0 10px var(--amber); animation: pulse .4s infinite alternate; }
+      @media (max-width: 900px) { .sideRail { width: 26px; } .cannon { display:none; } }
+      /* GOD MODE: burning screen edges */
+      .edgeFlame { position: fixed; inset: 0; z-index: 3; pointer-events: none; opacity: 0; transition: opacity .4s;
+        box-shadow: inset 0 0 0 3px rgba(255,150,30,.0), inset 0 0 60px rgba(255,110,0,.0); }
+      body.god .edgeFlame { opacity: 1; animation: flameEdge .5s infinite alternate; }
+      @keyframes flameEdge { from { box-shadow: inset 0 0 0 3px rgba(255,170,40,.75), inset 0 0 46px rgba(255,110,0,.45); } to { box-shadow: inset 0 0 0 4px rgba(255,210,80,.95), inset 0 0 84px rgba(255,80,0,.65); } }
+
+      #fx { position: fixed; inset: 0; z-index: 30; pointer-events: none; }
+      #app { position: relative; z-index: 2; max-width: 1060px; margin: 0 auto; padding: 18px 66px 40px; will-change: transform; }
+      @media (max-width: 900px) { #app { padding: 14px 30px 34px; } }
+
+      /* ---------- HUD ---------- */
+      .hud { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 12px; margin-top: 6px; }
+      .hud .cell .label { font-family: Orbitron, monospace; font-size: 11px; letter-spacing: .28em; color: var(--dim); }
+      .hud .cell .value { font-family: Orbitron, monospace; font-weight: 900; font-size: clamp(26px, 4vw, 40px); line-height: 1.05; }
+      #scoreVal { color: var(--ink); text-shadow: 0 0 18px rgba(34,211,238,.45); }
+      .comboCell { text-align: center; }
+      #comboVal { color: var(--amber); text-shadow: 0 0 22px rgba(255,197,61,.55); transition: transform .08s; display: inline-block; }
+      #comboVal.pop { transform: scale(1.25) rotate(-2deg); }
+      .comboCell.grace #comboVal { color: var(--red); animation: graceBlink .14s infinite alternate; }
+      .comboCell.grace .label { color: var(--red); }
+      @keyframes graceBlink { from { opacity: 1; transform: scale(1.12); } to { opacity: .35; transform: scale(.96); } }
+      .comboCell .label { color: var(--amber); }
+      .hud .right { text-align: right; }
+      #accVal { color: var(--cyan); }
+      .multBadge {
+        display: none; margin-left: 8px; padding: 2px 10px; border-radius: 999px;
+        background: var(--magenta); color: #fff; font-family: Orbitron, monospace;
+        font-size: 14px; font-weight: 900; vertical-align: middle;
+        box-shadow: 0 0 18px rgba(244,113,216,.8);
+      }
+      body.fever .multBadge { display: inline-block; animation: pulse .5s infinite alternate; }
+      body.hyper .multBadge { background: linear-gradient(90deg,#ff004c,#ff8a00,#ffee00,#00e676,#00b0ff,#aa00ff); background-size: 300% 100%; animation: rainbowSlide 1.2s linear infinite; color:#fff; text-shadow: 0 1px 2px rgba(0,0,0,.5); }
+      body.god .multBadge { background: var(--gold); color: #4a2c00; box-shadow: 0 0 26px rgba(255,217,74,.95); }
+      @keyframes rainbowSlide { from { background-position: 0% 0; } to { background-position: 300% 0; } }
+      @keyframes pulse { from { transform: scale(1); } to { transform: scale(1.12); } }
+
+      .timebar { height: 12px; border: 1px solid var(--line); border-radius: 999px; background: #0b0c1d; margin: 14px 0 4px; overflow: hidden; position: relative; }
+      #timeFill { height: 100%; width: 100%; background: linear-gradient(90deg, var(--cyan), var(--green)); border-radius: 999px; transition: width .12s linear; box-shadow: 0 0 12px rgba(34,211,238,.55); }
+      .timebar.low #timeFill { background: linear-gradient(90deg, var(--red), var(--amber)); animation: pulse .3s infinite alternate; }
+      .timebar.bonusFlash { animation: bonusFlash .5s; }
+      @keyframes bonusFlash { 0% { box-shadow: 0 0 0 0 rgba(74,222,128,.9); } 100% { box-shadow: 0 0 0 16px rgba(74,222,128,0); } }
+      .timerow { display: flex; justify-content: space-between; font-family: Orbitron, monospace; font-size: 12px; letter-spacing: .18em; color: var(--dim); }
+      #timeVal { color: var(--ink); font-weight: 700; }
+      #timeVal.pop { color: var(--green); transform: scale(1.3); display: inline-block; }
+
+      .feverGauge { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+      .feverGauge .flabel { font-family: Orbitron, monospace; font-size: 11px; letter-spacing: .22em; color: var(--magenta); white-space: nowrap; }
+      .feverTrack { flex: 1; height: 10px; border: 1px solid #4a2144; border-radius: 999px; background: #170a1c; overflow: hidden; }
+      #feverFill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--magenta), var(--amber)); transition: width .15s; box-shadow: 0 0 10px rgba(244,113,216,.7); }
+      body.hyper #feverFill { background: linear-gradient(90deg,#ff004c,#ff8a00,#ffee00,#00e676,#00b0ff,#aa00ff); background-size: 300% 100%; animation: rainbowSlide 1s linear infinite; }
+      body.god #feverFill { background: var(--gold); box-shadow: 0 0 16px var(--gold); }
+
+      /* ---------- Banner zone: announcements live HERE, never over the word ---------- */
+      #bannerZone { height: 58px; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 16px; overflow: visible; position: relative; }
+      .banner { font-family: Orbitron, monospace; font-weight: 900; font-size: clamp(26px, 4.6vw, 44px); letter-spacing: .05em; opacity: 0; pointer-events: none; white-space: nowrap; position: absolute; }
+      .banner.show { animation: bannerPop 1.05s ease-out forwards; }
+      @keyframes bannerPop { 0% { opacity: 0; transform: scale(.6) rotate(-3deg); } 18% { opacity: 1; transform: scale(1.14) rotate(1deg); } 30% { transform: scale(1); } 75% { opacity: 1; } 100% { opacity: 0; transform: scale(1.05) translateY(-8px); } }
+      #comboBanner { color: var(--amber); text-shadow: 0 0 26px rgba(255,197,61,.8), 0 4px 0 #7c4a03; }
+      #judgeBanner { color: var(--green); text-shadow: 0 0 26px rgba(74,222,128,.85), 0 4px 0 #14532d; }
+      #judgeBanner.perfect { color: var(--gold); text-shadow: 0 0 30px rgba(255,217,74,.95), 0 4px 0 #7c4a03; }
+      #feverBanner { color: var(--magenta); text-shadow: 0 0 30px rgba(244,113,216,.9), 0 4px 0 #6d104f; }
+      #feverBanner.hyper { background: linear-gradient(90deg,#ff004c,#ff8a00,#ffee00,#00e676,#00b0ff,#aa00ff); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; filter: drop-shadow(0 0 14px rgba(255,255,255,.45)); }
+      #feverBanner.god { color: var(--gold); text-shadow: 0 0 34px rgba(255,217,74,1), 0 4px 0 #7c2d00; }
+
+      /* ---------- Stage: the word sits on a solid plate, FX stay outside it ---------- */
+      .stage { position: relative; margin-top: 6px; padding: 18px 14px 20px; background: rgba(10,11,26,.55); border: 1px solid var(--line); border-radius: 18px; }
+      body.fever .stage { border-color: var(--magenta); box-shadow: 0 0 34px rgba(244,113,216,.30); }
+      body.god .stage { border-color: var(--gold); box-shadow: 0 0 38px rgba(255,170,40,.45); }
+      #wordPlate { position: relative; background: #08091a; border: 1px solid #23254d; border-radius: 14px; padding: 22px 16px 18px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.6), inset 0 2px 18px rgba(0,0,0,.75); }
+      body.fever #wordPlate { border-color: #3d2a4d; }
+      .nextWord { text-align: center; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; color: var(--dim); font-size: 15px; letter-spacing: .3em; min-height: 20px; }
+      .nextWord b { color: var(--dim); font-weight: 400; opacity: .75; }
+      .word {
+        margin-top: 8px; text-align: center;
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        font-weight: 700; font-size: clamp(38px, 7.2vw, 64px); letter-spacing: .08em; line-height: 1.25;
+        min-height: 1.25em; white-space: nowrap;
+      }
+      .word.jp { font-family: "Noto Sans JP", sans-serif; letter-spacing: .14em; }
+      .word .ch { color: #6a6fa3; position: relative; display: inline-block; transition: color .05s, transform .05s; }
+      .word .ch.done { color: var(--green); text-shadow: 0 0 10px rgba(74,222,128,.45); }
+      body.fever .word .ch.done { color: #ffd97a; }
+      body.god .word .ch.done, body.god .word .ch.now { color: var(--gold); text-shadow: 0 0 12px rgba(255,217,74,.6); }
+      .word .ch.now { color: var(--ink); }
+      .word .ch.now::after {
+        content: ""; position: absolute; left: 6%; right: 6%; bottom: -6px; height: 5px; border-radius: 3px;
+        background: var(--cyan); box-shadow: 0 0 10px var(--cyan); animation: caret .55s infinite alternate;
+      }
+      @keyframes caret { from { opacity: .45; } to { opacity: 1; } }
+      .word .ch.hit { transform: scale(1.22); }
+      .romajiLine { margin-top: 12px; text-align: center; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: clamp(16px, 2.6vw, 22px); letter-spacing: .18em; min-height: 1.4em; }
+      .romajiLine .typed { color: var(--green); font-weight: 700; }
+      .romajiLine .cand { color: var(--amber); font-weight: 700; }
+      .romajiLine .rest { color: #565b8c; }
+      .fingerGuide { margin-top: 14px; text-align: center; font-size: 16px; font-weight: 700; min-height: 26px; color: var(--dim); }
+      .fingerGuide .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 8px; vertical-align: -2px; box-shadow: 0 0 10px currentColor; background: currentColor; }
+      .fingerGuide .keyname { font-family: Orbitron, monospace; font-size: 20px; color: var(--ink); margin-right: 10px; text-transform: uppercase; }
+      /* floating score pops dock to the stage corners, away from the word */
+      #floatLayer { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+      .floatScore {
+        position: absolute; top: 6px; font-family: Orbitron, monospace; font-weight: 900; color: var(--amber);
+        text-shadow: 0 0 12px rgba(255,197,61,.7); animation: floatUp .8s ease-out forwards; white-space: nowrap;
+      }
+      @keyframes floatUp { 0% { opacity: 0; transform: translateY(8px) scale(.7); } 15% { opacity: 1; transform: translateY(0) scale(1.15); } 100% { opacity: 0; transform: translateY(-30px) scale(1); } }
+      .timeFly {
+        position: fixed; z-index: 35; font-family: Orbitron, monospace; font-weight: 900; font-size: 26px;
+        color: var(--green); text-shadow: 0 0 16px rgba(74,222,128,.9); pointer-events: none; white-space: nowrap;
+      }
+
+      .missFlash { position: fixed; inset: 0; z-index: 25; pointer-events: none; background: radial-gradient(ellipse at center, transparent 62%, rgba(251,77,109,.42) 100%); opacity: 0; }
+      .missFlash.on { animation: missF .25s ease-out; }
+      @keyframes missF { 0% { opacity: 1; } 100% { opacity: 0; } }
+
+      /* ---------- Keyboard ---------- */
+      .keyboard { margin-top: 22px; background: rgba(13,14,30,.88); border: 1px solid var(--line); border-radius: 18px; padding: 18px 14px 14px; animation: kbGlow 5s ease-in-out infinite alternate; }
+      @keyframes kbGlow { from { box-shadow: 0 0 10px rgba(34,211,238,.12); } to { box-shadow: 0 0 22px rgba(244,113,216,.20); } }
+      .krow { display: flex; justify-content: center; gap: 6px; margin-bottom: 6px; }
+      .krow.r2 { padding: 0 22px; }
+      .krow.r3 { padding: 0 52px; }
+      .key {
+        position: relative; flex: 1 1 0; max-width: 62px; height: 54px; border-radius: 9px;
+        background: var(--panel2); border: 1px solid var(--line); border-bottom-width: 3px;
+        display: flex; align-items: center; justify-content: center;
+        font-family: Orbitron, monospace; font-weight: 700; font-size: 17px; color: var(--dim);
+        text-transform: uppercase; transition: transform .05s, background .05s, color .05s, box-shadow .05s;
+      }
+      .key .fdot { position: absolute; top: 5px; right: 6px; width: 7px; height: 7px; border-radius: 50%; background: var(--fc, transparent); opacity: .9; }
+      .key .bump { position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); width: 16px; height: 3px; border-radius: 2px; background: var(--dim); }
+      .key.home { border-color: #454a86; background: #1d2044; color: var(--ink); }
+      .key.next { background: var(--fc); color: #0b0c1d; box-shadow: 0 0 22px var(--fc), 0 0 6px var(--fc); transform: translateY(-3px) scale(1.06); border-color: #fff; z-index: 2; }
+      body.hyper .key.next { box-shadow: 0 0 30px var(--fc), 0 0 12px #fff; }
+      .key.pressed { transform: translateY(3px) scale(.96); background: var(--ink); color: #0b0c1d; }
+      .key.wrong { background: var(--red) !important; color: #fff !important; box-shadow: 0 0 18px var(--red); }
+      .spacebar { flex: none; width: 46%; max-width: 340px; height: 40px; margin: 2px auto 0; border-radius: 9px; background: var(--panel2); border: 1px solid var(--line); border-bottom-width: 3px; display: flex; align-items: center; justify-content: center; font-size: 11px; letter-spacing: .3em; color: var(--dim); font-family: Orbitron, monospace; }
+      .kbNote { text-align: center; color: var(--dim); font-size: 12.5px; margin-top: 12px; }
+      .kbNote b { color: var(--ink); }
+
+      /* ---------- Overlays ---------- */
+      .overlay { position: fixed; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 18px; background: rgba(4,5,14,.78); backdrop-filter: blur(3px); overflow-y: auto; }
+      .overlay.hidden { display: none; }
+      .panel { width: min(720px, 100%); background: linear-gradient(180deg, #141631, #0d0e22); border: 1px solid var(--line); border-radius: 20px; padding: 30px 30px 26px; box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 34px rgba(34,211,238,.14); margin: auto; }
+      .gameTitle { font-family: Orbitron, monospace; font-weight: 900; font-size: clamp(38px, 8vw, 62px); line-height: 1; margin: 0; letter-spacing: .02em; }
+      .gameTitle .t1 { color: var(--cyan); text-shadow: 0 0 24px rgba(34,211,238,.65); animation: pulse 1.6s infinite alternate; display: inline-block; }
+      .gameTitle .t2 { color: var(--magenta); text-shadow: 0 0 24px rgba(244,113,216,.65); animation: pulse 1.6s .3s infinite alternate; display: inline-block; }
+      .tagline { color: var(--dim); margin: 10px 0 0; font-size: 14.5px; line-height: 1.7; }
+      .homeExplain { margin-top: 22px; background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+      .homeExplain h2 { margin: 0 0 10px; font-size: 15px; letter-spacing: .08em; }
+      .homeExplain p { margin: 0; color: var(--dim); font-size: 13.5px; line-height: 1.8; }
+      .homeExplain p b { color: var(--ink); }
+      .hands { display: flex; gap: 14px; margin-top: 14px; flex-wrap: wrap; }
+      .hand { flex: 1 1 220px; }
+      .hand .hlabel { font-size: 12px; color: var(--dim); letter-spacing: .14em; margin-bottom: 6px; font-weight: 700; }
+      .hand .hrow { display: flex; gap: 5px; }
+      .hkey { flex: 1; height: 42px; border-radius: 8px; background: var(--panel2); border: 1px solid var(--line); border-bottom: 3px solid var(--fc, var(--line)); display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: Orbitron, monospace; font-weight: 700; font-size: 15px; position: relative; }
+      .hkey small { font-family: "Noto Sans JP", sans-serif; font-size: 9.5px; color: var(--dim); font-weight: 500; margin-top: 1px; }
+      .hkey .bump { position: absolute; top: 4px; width: 14px; height: 3px; border-radius: 2px; background: var(--amber); }
+      .modeGrid { display: grid; gap: 10px; margin-top: 22px; }
+      @media (min-width: 620px) { .modeGrid { grid-template-columns: repeat(2, 1fr); } }
+      .modeBtn {
+        text-align: left; cursor: pointer; border: 1px solid var(--line); border-radius: 14px;
+        background: var(--panel2); color: var(--ink); padding: 16px 16px 14px; font-family: inherit;
+        transition: transform .1s, border-color .1s, box-shadow .1s; min-height: 44px;
+      }
+      .modeBtn:hover, .modeBtn:focus-visible { transform: translateY(-3px); border-color: var(--cyan); box-shadow: 0 10px 26px rgba(34,211,238,.22); outline: none; }
+      .modeBtn.romaji { border-color: #4a2144; }
+      .modeBtn.romaji:hover, .modeBtn.romaji:focus-visible { border-color: var(--magenta); box-shadow: 0 10px 26px rgba(244,113,216,.25); }
+      .modeBtn .mname { font-weight: 900; font-size: 16.5px; display: block; }
+      .modeBtn .mname .en { font-family: Orbitron, monospace; font-size: 11px; color: var(--cyan); letter-spacing: .16em; display: block; margin-bottom: 4px; }
+      .modeBtn.romaji .mname .en { color: var(--magenta); }
+      .modeBtn .mdesc { color: var(--dim); font-size: 12.5px; line-height: 1.65; display: block; margin-top: 6px; }
+      .panelFoot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+      .footNote { color: var(--dim); font-size: 12.5px; line-height: 1.7; }
+      .soundBtn { cursor: pointer; background: transparent; border: 1px solid var(--line); color: var(--ink); border-radius: 999px; padding: 8px 16px; font-family: inherit; font-weight: 700; font-size: 13px; min-height: 38px; }
+      .soundBtn:hover { border-color: var(--cyan); }
+
+      #countOverlay { background: rgba(4,5,14,.45); }
+      #countNum { font-family: Orbitron, monospace; font-weight: 900; font-size: clamp(90px, 22vw, 170px); color: var(--amber); text-shadow: 0 0 50px rgba(255,197,61,.8); }
+      #countNum.zoom { animation: countZoom .9s ease-out; }
+      @keyframes countZoom { 0% { transform: scale(1.7); opacity: 0; } 25% { opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+
+      .rankRow { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+      #rankLetter { font-family: Orbitron, monospace; font-weight: 900; font-size: 110px; line-height: 1; color: var(--amber); text-shadow: 0 0 40px rgba(255,197,61,.75); }
+      #rankLetter.s { color: var(--magenta); text-shadow: 0 0 44px rgba(244,113,216,.9); }
+      .rankMeta .rscore { font-family: Orbitron, monospace; font-weight: 900; font-size: 40px; }
+      .rankMeta .rlabel { color: var(--dim); font-size: 12px; letter-spacing: .22em; font-family: Orbitron, monospace; }
+      #rankComment { font-weight: 900; font-size: 19px; margin-top: 4px; }
+      .statGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 22px; }
+      @media (min-width: 560px) { .statGrid { grid-template-columns: repeat(4, 1fr); } }
+      .stat { background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+      .stat .slabel { font-size: 11px; color: var(--dim); letter-spacing: .14em; font-weight: 700; }
+      .stat .svalue { font-family: Orbitron, monospace; font-weight: 900; font-size: 24px; margin-top: 3px; }
+      .stat .svalue small { font-size: 12px; color: var(--dim); font-weight: 500; }
+      .resultBtns { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+      .bigBtn { cursor: pointer; border: none; border-radius: 12px; padding: 13px 24px; font-family: inherit; font-weight: 900; font-size: 15.5px; min-height: 48px; }
+      .bigBtn.primary { background: linear-gradient(90deg, var(--cyan), #0ea5c6); color: #04121a; box-shadow: 0 8px 26px rgba(34,211,238,.35); }
+      .bigBtn.primary:hover { filter: brightness(1.12); }
+      .bigBtn.ghost { background: transparent; border: 1px solid var(--line); color: var(--ink); }
+      .bigBtn.ghost:hover { border-color: var(--cyan); }
+      .pcOnly { color: var(--amber); font-size: 12.5px; font-weight: 700; margin-top: 14px; display: none; }
+      @media (pointer: coarse) { .pcOnly { display: block; } }
+      @media (max-width: 640px) {
+        .key { height: 44px; font-size: 13px; }
+        .krow.r2 { padding: 0 8px; } .krow.r3 { padding: 0 20px; }
+        .panel { padding: 22px 18px; }
+        .banner { font-size: 24px; }
+      }
+      /* ---------- SEO / about section (below the game, unobtrusive) ---------- */
+      .seoInfo { position: relative; z-index: 2; max-width: 1060px; margin: 8px auto 0; padding: 10px 66px 46px; color: var(--dim); }
+      @media (max-width: 900px) { .seoInfo { padding: 10px 30px 40px; } }
+      .seoInfo h1 { font-size: 17px; color: var(--ink); line-height: 1.6; margin: 0 0 14px; font-weight: 900; }
+      .seoInfo h1 .accent { color: var(--cyan); }
+      .seoInfo h2 { font-size: 14px; color: var(--ink); margin: 26px 0 8px; letter-spacing: .06em; }
+      .seoInfo p, .seoInfo li { font-size: 13px; line-height: 1.9; }
+      .seoInfo p { margin: 0 0 10px; }
+      .seoInfo ul { margin: 0 0 10px; padding-left: 1.3em; }
+      .seoInfo li { margin-bottom: 4px; }
+      .seoInfo b { color: var(--ink); }
+      .seoInfo .divider { border: none; border-top: 1px solid var(--line); margin: 0 0 22px; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .banner.show, #countNum.zoom, .floatScore { animation-duration: .01s; }
+        .neonTube, .keyboard, .gameTitle .t1, .gameTitle .t2 { animation: none; }
+        .comboCell.grace #comboVal { animation-duration: .3s; }
+      }
+    </style>
+    <meta name="google-site-verification" content="VxyLqKVi7Pm5BFyBkvDM9CUV5kXomL_vYV9vDg3_u_Y" />
+  </head>
+  <body>
+    <canvas id="fx"></canvas>
+    <div class="edgeFlame"></div>
+    <div class="sideRail left" aria-hidden="true"><div class="railDot"></div><div class="neonTube"></div><div class="cannon"></div></div>
+    <div class="sideRail right" aria-hidden="true"><div class="railDot"></div><div class="neonTube"></div><div class="cannon"></div></div>
+    <div class="missFlash" id="missFlash"></div>
+
+    <div id="app">
+      <div class="hud">
+        <div class="cell">
+          <div class="label">SCORE<span class="multBadge" id="multBadge">FEVER ×3</span></div>
+          <div class="value" id="scoreVal">0</div>
+        </div>
+        <div class="cell comboCell" id="comboCell">
+          <div class="label" id="comboLabel">COMBO</div>
+          <div class="value"><span id="comboVal">0</span></div>
+        </div>
+        <div class="cell right">
+          <div class="label">ACCURACY / KPM</div>
+          <div class="value"><span id="accVal">100%</span> <span style="color:var(--dim); font-size:.5em;">/</span> <span id="kpmVal" style="color:var(--green);">0</span></div>
+        </div>
+      </div>
+      <div class="timebar" id="timebar"><div id="timeFill"></div></div>
+      <div class="timerow"><span>TIME</span><span id="timeVal">60.0</span></div>
+      <div class="feverGauge">
+        <span class="flabel" id="feverLabel">FEVER GAUGE</span>
+        <div class="feverTrack"><div id="feverFill"></div></div>
+        <span class="flabel" id="feverHint">30 COMBOで点火</span>
+      </div>
+
+      <div id="bannerZone" aria-live="polite">
+        <div class="banner" id="judgeBanner"></div>
+        <div class="banner" id="comboBanner"></div>
+        <div class="banner" id="feverBanner">FEVER!!</div>
+      </div>
+
+      <section class="stage" id="stage">
+        <div id="wordPlate">
+          <div class="nextWord">NEXT&nbsp; <b id="nextWordVal">—</b></div>
+          <div class="word" id="wordBox"><span style="color:var(--dim); font-size:.42em; letter-spacing:.14em;">モードを選んでスタート</span></div>
+          <div class="romajiLine" id="romajiLine"></div>
+          <div class="fingerGuide" id="fingerGuide">キーボードのキーを押すと光ります。まずは下のモードを選んでください。</div>
+        </div>
+        <div id="floatLayer"></div>
+      </section>
+
+      <section class="keyboard" id="keyboard" aria-label="バーチャルキーボード"></section>
+      <p class="kbNote">ホームポジション：左手は <b>A S D F</b>、右手は <b>J K L ;</b>。<b>F</b> と <b>J</b> の突起（<b>―</b>）に人差し指を置くのが全ての基本です。次に押すキーは光ります。ローマ字モードでは <b>tu / tsu</b> のような別表記も全部OK、「ん」は <b>n / nn</b> 両対応です。</p>
+    </div>
+
+    <div class="overlay" id="startOverlay">
+      <div class="panel">
+        <h1 class="gameTitle"><span class="t1">TYPE</span> <span class="t2">FEVER</span></h1>
+        <p class="tagline">打つたびにメロディが進み、両脇から花火と雷が走る。コンボを繋いで FEVER → HYPER → GOD MODE へ。60秒のタイピング・アーケード。速さより先に、正しい指づかいを身体に叩き込みます。</p>
+
+        <div class="homeExplain">
+          <h2>ホームポジション ― 全ての指に「住所」がある</h2>
+          <p>タイピングの基本は、指を置く定位置＝ホームポジションに戻ること。左手は <b>A（小指）S（薬指）D（中指）F（人差し指）</b>、右手は <b>J（人差し指）K（中指）L（薬指）;（小指）</b>。キーボードの <b>F</b> と <b>J</b> には小さな突起があり、目で見なくても人差し指の位置が分かります。各キーには担当の指が決まっていて、ゲーム中は「次に押すキー」と「使う指」を色と名前で教えてくれます。</p>
+          <div class="hands">
+            <div class="hand">
+              <div class="hlabel">左手 ― LEFT HAND</div>
+              <div class="hrow" id="leftHandRow"></div>
+            </div>
+            <div class="hand">
+              <div class="hlabel">右手 ― RIGHT HAND</div>
+              <div class="hrow" id="rightHandRow"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modeGrid">
+          <button class="modeBtn" data-mode="home" type="button">
+            <span class="mname"><span class="en">MODE 1 / HOME ROW</span>ホームポジション特訓</span>
+            <span class="mdesc">ホーム段（A〜;）だけのドリル＆単語。指の住所を覚えるならまずここ。FEVERへの近道。</span>
+          </button>
+          <button class="modeBtn" data-mode="words" type="button">
+            <span class="mname"><span class="en">MODE 2 / WORDS</span>ワードラッシュ</span>
+            <span class="mdesc">よく使う英単語を次々に撃ち落とす標準モード。全段を使う実戦タイピング。</span>
+          </button>
+          <button class="modeBtn" data-mode="full" type="button">
+            <span class="mname"><span class="en">MODE 3 / FULL KEY</span>フルキーボード</span>
+            <span class="mdesc">Q・Z・Xなど端のキー多めの単語集。下段・上段の指の伸びを鍛える上級モード。</span>
+          </button>
+          <button class="modeBtn romaji" data-mode="romaji" type="button">
+            <span class="mname"><span class="en">MODE 4 / ROMAJI</span>ローマ字ラッシュ</span>
+            <span class="mdesc">ひらがなワードをローマ字で打つ日本語モード。<b>tu＝tsu</b>、<b>si＝shi</b> など別表記を全部許容。「ん」は <b>n 1つでも nn でもOK</b>（次が母音・や行・な行のときだけ nn が必要）。</span>
+          </button>
+        </div>
+
+        <div class="panelFoot">
+          <span class="footNote">制限時間 60秒 ／ ワード速攻＆コンボで <b>+1秒ボーナス</b> ／ ミスしても約1秒の猶予内に正打すればコンボ復活！<br />30コンボ FEVER（×3）→ 70コンボ HYPER（×5）→ 100コンボ GOD MODE（×8）／ Escで中断。</span>
+          <button class="soundBtn" id="soundBtn" type="button">サウンド：ON</button>
+        </div>
+        <p class="pcOnly">⚠ このゲームは物理キーボードでのプレイを想定しています。PCで開いてください。</p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="countOverlay"><div id="countNum">3</div></div>
+
+    <div class="overlay hidden" id="resultOverlay">
+      <div class="panel">
+        <div class="rankRow">
+          <div id="rankLetter">S</div>
+          <div class="rankMeta">
+            <div class="rlabel">FINAL SCORE</div>
+            <div class="rscore" id="finalScore">0</div>
+            <div id="rankComment">すさまじい指さばき！</div>
+          </div>
+        </div>
+        <div class="statGrid">
+          <div class="stat"><div class="slabel">最大コンボ</div><div class="svalue" id="stCombo">0</div></div>
+          <div class="stat"><div class="slabel">正確率</div><div class="svalue" id="stAcc">0<small>%</small></div></div>
+          <div class="stat"><div class="slabel">速度 KPM</div><div class="svalue" id="stKpm">0<small> 打/分</small></div></div>
+          <div class="stat"><div class="slabel">撃破ワード</div><div class="svalue" id="stWords">0<small> 語</small></div></div>
+          <div class="stat"><div class="slabel">FEVER回数</div><div class="svalue" id="stFever">0<small> 回</small></div></div>
+          <div class="stat"><div class="slabel">正打 / ミス</div><div class="svalue" id="stKeys">0<small> / 0</small></div></div>
+          <div class="stat"><div class="slabel">モード</div><div class="svalue" id="stMode" style="font-size:17px; padding-top:6px;">—</div></div>
+          <div class="stat"><div class="slabel">苦手なキー</div><div class="svalue" id="stWeak" style="font-size:17px; padding-top:6px;">—</div></div>
+        </div>
+        <div class="resultBtns">
+          <button class="bigBtn primary" id="retryBtn" type="button">もう一度プレイ（Enter）</button>
+          <button class="bigBtn ghost" id="toMenuBtn" type="button">モード選択へ</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="seoInfo">
+      <hr class="divider" />
+      <h1>TYPE FEVER（タイプフィーバー）― <span class="accent">ド派手タイピング</span>で学ぶ60秒タイピングゲーム</h1>
+      <p><b>TYPE FEVER（タイプフィーバー）</b>は、制限時間60秒のタイムアタック形式で遊ぶ、無料のブラウザタイピングゲームです。正しく打つたびに花火が上がり、雷が走り、メロディが一音ずつ進む「ド派手タイピング」設計で、ついもう一回打ちたくなる気持ちよさを追求しました。PCのブラウザで開けばそのまま遊べるので、ダウンロードも会員登録も不要です。</p>
+      <p>コンボを繋ぐと <b>FEVER（スコア×3）→ HYPER FEVER（×5）→ GOD MODE（×8）</b> へと段階的に進化し、画面の演出もどんどん派手になります。ワードを速く正確に打ち切ると制限時間に+1秒のボーナス。ミスをしても約1秒の猶予内に正しく打ち直せばコンボは復活するので、最後まで集中して走り切れます。</p>
+
+      <h2>ホームポジション練習に最適な理由</h2>
+      <p>このゲームは速さだけでなく、<b>ホームポジション</b>と正しい指づかいを身につけるためのタイピング練習ツールでもあります。左手は A・S・D・F、右手は J・K・L・; に指を置くのが基本姿勢。ゲーム中は「次に押すキー」がキーボード表示で光り、使うべき指を色と名前でガイドします。結果画面では苦手なキーも表示されるので、自分の弱点を意識しながら繰り返し練習できます。</p>
+
+      <h2>4つのプレイモード</h2>
+      <ul>
+        <li><b>ホームポジション特訓</b>：ホーム段（A〜;）だけのドリルと単語で、指の定位置を身体に覚えさせる入門モード。</li>
+        <li><b>ワードラッシュ</b>：よく使う英単語を次々に打つ標準モード。全段を使う実戦タイピング練習に。</li>
+        <li><b>フルキーボード</b>：Q・Z・Xなど端のキーが多い単語集。上段・下段への指の伸びを鍛える上級モード。</li>
+        <li><b>ローマ字ラッシュ</b>：ひらがなワードをローマ字で打つ日本語モード。tu＝tsu、si＝shi のような別表記や、「ん」の n／nn 入力にも対応しています。</li>
+      </ul>
+
+      <h2>遊び方</h2>
+      <p>モードを選ぶとカウントダウンのあとゲーム開始。表示されたワードをキーボードでそのまま入力してください。制限時間は60秒、Escキーで中断できます。物理キーボードでのプレイを想定したPC向けゲームです。タイピングの授業や自習でのホームポジション練習、ブラインドタッチの基礎トレーニングにもどうぞ。</p>
+    </footer>
+
+    <script>
+    "use strict";
+    /* ================= Data ================= */
+    var FINGER = {
+      q:"lp", a:"lp", z:"lp",
+      w:"lr", s:"lr", x:"lr",
+      e:"lm", d:"lm", c:"lm",
+      r:"li", t:"li", f:"li", g:"li", v:"li", b:"li",
+      y:"ri", u:"ri", h:"ri", j:"ri", n:"ri", m:"ri",
+      i:"rm", k:"rm", ",":"rm",
+      o:"rr", l:"rr", ".":"rr",
+      p:"rp", ";":"rp", "/":"rp"
+    };
+    var FINGER_NAME = { lp:"左手・小指", lr:"左手・薬指", lm:"左手・中指", li:"左手・人差し指",
+                        ri:"右手・人差し指", rm:"右手・中指", rr:"右手・薬指", rp:"右手・小指" };
+    var FINGER_COLOR = { lp:"#f471d8", lr:"#fb923c", lm:"#ffc53d", li:"#4ade80",
+                         ri:"#22d3ee", rm:"#60a5fa", rr:"#a78bfa", rp:"#f472b6" };
+    var HOME_KEYS = ["a","s","d","f","j","k","l",";"];
+    var HOME_WORDS = ["ask","sad","fall","glass","salad","flask","dash","half","salsa","flash",
+      "class","shall","halls","falls","gala","lass","lash","gash","adds","fads","lads","dads",
+      "alaska", "saga","flag","glad","flak","dallas"];
+    var WORDS = ["apple","brave","cloud","dance","eagle","flame","grape","house","input","jungle",
+      "knife","lemon","music","night","ocean","piano","queen","river","stone","tiger","vivid",
+      "water","young","zebra","keyboard","monitor","program","window","garden","silver","golden",
+      "rocket","planet","bridge","candle","dragon","energy","forest","guitar","harbor","island",
+      "jacket","kitten","ladder","market","napkin","orange","pencil","rabbit","sunset","temple",
+      "velvet","winter","yellow","sakura","sushi","tokyo","ninja","samurai","fuji","sake"];
+    var FULL_WORDS = ["quick","brown","jumps","lazy","wizard","boxing","fjord","glyph","crypt",
+      "rhythm","oxygen","puzzle","zigzag","matrix","vortex","onyx","pajamas","quiver","zephyr",
+      "jigsaw","waltz","nymph","gizmo","buzz","jazz","fizz","quiz","jinx","vexed","kickbox",
+      "quartz","zombie","pixel","cyber","hyper","vapor","flux","jumbo","waxen"];
+    /* Japanese kana words for romaji mode (hiragana only) */
+    var JP_WORDS = ["さくら","すし","とうきょう","つき","つなみ","かぜ","うみ","やま","かわ","もり",
+      "そら","ほし","ゆき","あめ","はな","とり","ねこ","いぬ","さかな","ふじさん",
+      "ちず","ちかてつ","まち","ひる","よる","あさ","ゆうがた","でんしゃ","じてんしゃ","しゃしん",
+      "ほん","ぱん","てんき","せんせい","かんじ","ほんや","しんぶん","ぎんこう","でんわ","さんぽ",
+      "がっこう","きって","ざっし","もっと","やっぱり","じかん","しごと","たべもの","のみもの","りょこう"];
+    var MODE_NAME = { home:"ホームポジション特訓", words:"ワードラッシュ", full:"フルキーボード", romaji:"ローマ字ラッシュ" };
+    var GAME_TIME = 60, FEVER_COMBO = 30, HYPER_COMBO = 70, GOD_COMBO = 100, FEVER_TIME = 12;
+    var GRACE_MS = 1000;
+    var MULTS = [1, 3, 5, 8];
+    var TIER_NAME = ["", "FEVER ×3", "HYPER FEVER ×5", "GOD MODE ×8"];
+
+    /* ================= Romaji parser (multi-candidate NFA) =================
+       Each kana token maps to several accepted spellings. The parser keeps a
+       SET of states {idx, partial} so ambiguous prefixes (n vs nn, etc.)
+       stay alive in parallel until the next key disambiguates them. */
+    var ROMA = {
+      "あ":["a"], "い":["i","yi"], "う":["u","wu","whu"], "え":["e"], "お":["o"],
+      "か":["ka","ca"], "き":["ki"], "く":["ku","cu","qu"], "け":["ke"], "こ":["ko","co"],
+      "さ":["sa"], "し":["si","shi","ci"], "す":["su"], "せ":["se","ce"], "そ":["so"],
+      "た":["ta"], "ち":["ti","chi","tsi"], "つ":["tu","tsu"], "て":["te"], "と":["to"],
+      "な":["na"], "に":["ni"], "ぬ":["nu"], "ね":["ne"], "の":["no"],
+      "は":["ha"], "ひ":["hi"], "ふ":["hu","fu"], "へ":["he"], "ほ":["ho"],
+      "ま":["ma"], "み":["mi"], "む":["mu"], "め":["me"], "も":["mo"],
+      "や":["ya"], "ゆ":["yu"], "よ":["yo"],
+      "ら":["ra"], "り":["ri"], "る":["ru"], "れ":["re"], "ろ":["ro"],
+      "わ":["wa"], "を":["wo"], "ゐ":["wi"], "ゑ":["we"],
+      "が":["ga"], "ぎ":["gi"], "ぐ":["gu"], "げ":["ge"], "ご":["go"],
+      "ざ":["za"], "じ":["zi","ji"], "ず":["zu"], "ぜ":["ze"], "ぞ":["zo"],
+      "だ":["da"], "ぢ":["di","ji","zi"], "づ":["du","zu"], "で":["de"], "ど":["do"],
+      "ば":["ba"], "び":["bi"], "ぶ":["bu"], "べ":["be"], "ぼ":["bo"],
+      "ぱ":["pa"], "ぴ":["pi"], "ぷ":["pu"], "ぺ":["pe"], "ぽ":["po"],
+      "ぁ":["xa","la"], "ぃ":["xi","li"], "ぅ":["xu","lu"], "ぇ":["xe","le"], "ぉ":["xo","lo"],
+      "ゃ":["xya","lya"], "ゅ":["xyu","lyu"], "ょ":["xyo","lyo"], "ゎ":["xwa","lwa"],
+      "きゃ":["kya"], "きゅ":["kyu"], "きょ":["kyo"],
+      "しゃ":["sya","sha"], "しゅ":["syu","shu"], "しょ":["syo","sho"],
+      "ちゃ":["tya","cha","cya"], "ちゅ":["tyu","chu","cyu"], "ちょ":["tyo","cho","cyo"],
+      "にゃ":["nya"], "にゅ":["nyu"], "にょ":["nyo"],
+      "ひゃ":["hya"], "ひゅ":["hyu"], "ひょ":["hyo"],
+      "みゃ":["mya"], "みゅ":["myu"], "みょ":["myo"],
+      "りゃ":["rya"], "りゅ":["ryu"], "りょ":["ryo"],
+      "ぎゃ":["gya"], "ぎゅ":["gyu"], "ぎょ":["gyo"],
+      "じゃ":["ja","jya","zya"], "じゅ":["ju","jyu","zyu"], "じょ":["jo","jyo","zyo"],
+      "ぢゃ":["dya","ja","jya"], "ぢゅ":["dyu","ju","jyu"], "ぢょ":["dyo","jo","jyo"],
+      "びゃ":["bya"], "びゅ":["byu"], "びょ":["byo"],
+      "ぴゃ":["pya"], "ぴゅ":["pyu"], "ぴょ":["pyo"],
+      "ふぁ":["fa"], "ふぃ":["fi"], "ふぇ":["fe"], "ふぉ":["fo"],
+      "うぃ":["wi"], "うぇ":["we"], "ヴ":["vu"]
+    };
+    var SMALL_Y = "ゃゅょ";
+    function tokenizeKana(kana){
+      var toks = [], i = 0;
+      while (i < kana.length){
+        var c = kana[i];
+        if (i + 1 < kana.length && SMALL_Y.indexOf(kana[i + 1]) >= 0 && c !== "っ" && c !== "ん"){
+          toks.push(c + kana[i + 1]); i += 2;
+        } else { toks.push(c); i += 1; }
+      }
+      return toks;
+    }
+    function isVowelYorNToken(tok){
+      if (!tok) return false;
+      var c = tok[0];
+      return "あいうえおやゆよなにぬねの".indexOf(c) >= 0;
+    }
+    function romajiOptions(toks, idx){
+      var tok = toks[idx], next = toks[idx + 1];
+      if (tok === "ん"){
+        /* Standard rule: before a vowel / y-row / n-row kana, a single "n"
+           is ambiguous (it could start the next kana), so "nn" is required.
+           Everywhere else (word end, before other consonants) "n" alone
+           completes the ん and "nn" is also accepted. */
+        if (next && isVowelYorNToken(next)) return ["nn", "xn"];
+        return ["n", "nn", "xn"];
+      }
+      if (tok === "っ"){
+        var opts = ["xtu", "xtsu", "ltu", "ltsu"];
+        if (next && next !== "ん"){
+          var nopts = romajiOptionsBase(next), i, o;
+          for (i = 0; i < nopts.length; i++){
+            o = nopts[i];
+            if (o && "bcdfghjkprstvwz".indexOf(o[0]) >= 0 && opts.indexOf(o[0]) < 0) opts.push(o[0]);
+          }
+        }
+        return opts;
+      }
+      return romajiOptionsBase(tok);
+    }
+    function romajiOptionsBase(tok){ return ROMA[tok] ? ROMA[tok].slice() : [tok]; }
+
+    function parserClosure(toks, states){
+      /* epsilon-closure: a state whose partial fully matches an option also
+         spawns the state at the next token with an empty partial, while the
+         original state survives if the partial is a prefix of a longer option
+         (this is what keeps "n" and "nn" both alive). */
+      var seen = {}, out = [], queue = states.slice(), i, st, opts, j;
+      function key(s){ return s.idx + "|" + s.partial; }
+      while (queue.length){
+        st = queue.shift();
+        if (seen[key(st)]) continue;
+        seen[key(st)] = 1; out.push(st);
+        if (st.idx >= toks.length || !st.partial) continue;
+        opts = romajiOptions(toks, st.idx);
+        for (j = 0; j < opts.length; j++){
+          if (opts[j] === st.partial){
+            var nx = { idx: st.idx + 1, partial: "" };
+            if (!seen[key(nx)]) queue.push(nx);
+          }
+        }
+      }
+      return out;
+    }
+    function parserFeed(toks, states, ch){
+      var next = [], i, st, cand, opts, j;
+      for (i = 0; i < states.length; i++){
+        st = states[i];
+        if (st.idx >= toks.length) continue;
+        cand = st.partial + ch;
+        opts = romajiOptions(toks, st.idx);
+        for (j = 0; j < opts.length; j++){
+          if (opts[j].indexOf(cand) === 0){ next.push({ idx: st.idx, partial: cand }); break; }
+        }
+      }
+      if (!next.length) return null;
+      return parserClosure(toks, next);
+    }
+    function parserDoneIdx(states){
+      var m = 0, i;
+      for (i = 0; i < states.length; i++) if (states[i].idx > m) m = states[i].idx;
+      return m;
+    }
+    function parserComplete(toks, states){
+      var i;
+      for (i = 0; i < states.length; i++) if (states[i].idx >= toks.length) return true;
+      return false;
+    }
+    function parserNextChars(toks, states){
+      var set = {}, i, st, opts, j;
+      for (i = 0; i < states.length; i++){
+        st = states[i];
+        if (st.idx >= toks.length) continue;
+        opts = romajiOptions(toks, st.idx);
+        for (j = 0; j < opts.length; j++){
+          if (opts[j].indexOf(st.partial) === 0 && opts[j].length > st.partial.length)
+            set[opts[j][st.partial.length]] = 1;
+        }
+      }
+      return Object.keys(set);
+    }
+    function parserCurrentCandidates(toks, states){
+      /* human-readable spellings still alive for the current token */
+      var set = {}, i, st, opts, j;
+      var done = parserDoneIdx(states);
+      for (i = 0; i < states.length; i++){
+        st = states[i];
+        if (st.idx !== done || st.idx >= toks.length) continue;
+        opts = romajiOptions(toks, st.idx);
+        for (j = 0; j < opts.length; j++) if (opts[j].indexOf(st.partial) === 0) set[opts[j]] = 1;
+      }
+      return Object.keys(set);
+    }
+
+    /* ================= State ================= */
+    var S = {
+      phase: "menu", mode: "words",
+      word: "", next: "", pos: 0,
+      kana: "", nextKana: "", tokens: [], rStates: [], rTyped: "",
+      score: 0, combo: 0, maxCombo: 0,
+      correct: 0, miss: 0, wordsDone: 0,
+      fever: false, feverLeft: 0, feverCount: 0, tier: 0,
+      timeLeft: GAME_TIME, timerId: null, lastTick: 0,
+      missByKey: {}, sound: true, deck: [],
+      graceUntil: 0, graceCombo: 0, graceTimer: null,
+      melodyStep: 0, wordStartAt: 0, wordMiss: false, wordKeys: 0,
+      cannonId: null, beatId: null, beatStep: 0
+    };
+    function isJP(){ return S.mode === "romaji"; }
+    function currentMult(){ return MULTS[S.tier] || 1; }
+
+    /* ================= DOM ================= */
+    function $(id){ return document.getElementById(id); }
+    var appEl = $("app"), wordBox = $("wordBox"), nextWordVal = $("nextWordVal"),
+        scoreVal = $("scoreVal"), comboVal = $("comboVal"), accVal = $("accVal"), kpmVal = $("kpmVal"),
+        comboCell = $("comboCell"), comboLabel = $("comboLabel"),
+        timeFill = $("timeFill"), timeVal = $("timeVal"), timebar = $("timebar"),
+        feverFill = $("feverFill"), feverHint = $("feverHint"), feverLabel = $("feverLabel"),
+        multBadge = $("multBadge"),
+        fingerGuide = $("fingerGuide"), floatLayer = $("floatLayer"), romajiLine = $("romajiLine"),
+        comboBanner = $("comboBanner"), feverBanner = $("feverBanner"), judgeBanner = $("judgeBanner"),
+        missFlash = $("missFlash"), wordPlate = $("wordPlate"), stageEl = $("stage");
+
+    /* ================= Keyboard build ================= */
+    var keyEls = {};
+    (function buildKeyboard(){
+      var rows = [
+        { cls:"r1", keys:"qwertyuiop".split("") },
+        { cls:"r2", keys:"asdfghjkl;".split("") },
+        { cls:"r3", keys:"zxcvbnm,./".split("") }
+      ];
+      var kb = $("keyboard");
+      rows.forEach(function(row){
+        var div = document.createElement("div");
+        div.className = "krow " + row.cls;
+        row.keys.forEach(function(k){
+          var el = document.createElement("div");
+          el.className = "key" + (HOME_KEYS.indexOf(k) >= 0 ? " home" : "");
+          el.style.setProperty("--fc", FINGER_COLOR[FINGER[k]]);
+          el.innerHTML = "<span>" + k + "</span><span class='fdot'></span>" +
+            ((k === "f" || k === "j") ? "<span class='bump'></span>" : "");
+          div.appendChild(el);
+          keyEls[k] = el;
+        });
+        kb.appendChild(div);
+      });
+      var sp = document.createElement("div");
+      sp.className = "spacebar"; sp.textContent = "SPACE — 両手の親指";
+      kb.appendChild(sp);
+    })();
+
+    (function buildHands(){
+      var left = [["a","小指"],["s","薬指"],["d","中指"],["f","人差し指"]],
+          right = [["j","人差し指"],["k","中指"],["l","薬指"],[";","小指"]];
+      function fill(id, arr){
+        var box = $(id);
+        arr.forEach(function(pair){
+          var k = pair[0], f = FINGER[k];
+          var d = document.createElement("div");
+          d.className = "hkey"; d.style.setProperty("--fc", FINGER_COLOR[f]);
+          d.style.borderBottomColor = FINGER_COLOR[f];
+          d.innerHTML = k.toUpperCase() + "<small>" + pair[1] + "</small>" +
+            ((k === "f" || k === "j") ? "<span class='bump'></span>" : "");
+          box.appendChild(d);
+        });
+      }
+      fill("leftHandRow", left); fill("rightHandRow", right);
+    })();
+
+    /* ================= Audio: synth + pentatonic music engine ================= */
+    var AC = null;
+    function audio(){ if (!AC) { try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch(e){} }
+      if (AC && AC.state === "suspended") AC.resume(); return AC; }
+    function tone(freq, dur, type, vol, when, slideTo){
+      if (!S.sound) return; var ac = audio(); if (!ac) return;
+      var t = ac.currentTime + (when || 0);
+      var o = ac.createOscillator(), g = ac.createGain();
+      o.type = type || "sine"; o.frequency.setValueAtTime(freq, t);
+      if (slideTo) o.frequency.exponentialRampToValueAtTime(Math.max(slideTo, 1), t + dur);
+      g.gain.setValueAtTime(vol || .12, t);
+      g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+      o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + dur + .02);
+    }
+    function noiseBurst(dur, vol, freq){
+      if (!S.sound) return; var ac = audio(); if (!ac) return;
+      var len = Math.floor(ac.sampleRate * dur), buf = ac.createBuffer(1, len, ac.sampleRate),
+          d = buf.getChannelData(0), i;
+      for (i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
+      var src = ac.createBufferSource(); src.buffer = buf;
+      var f = ac.createBiquadFilter(); f.type = "lowpass"; f.frequency.value = freq || 900;
+      var g = ac.createGain(); g.gain.value = vol;
+      src.connect(f); f.connect(g); g.connect(ac.destination); src.start();
+    }
+    /* C major pentatonic: C D E G A, climbing an octave every 5 steps.
+       Every correct key advances the melody; combo keeps it climbing. */
+    var PENTA = [0, 2, 4, 7, 9];
+    function pentaFreq(step, baseMidi){
+      var oct = Math.floor(step / 5), idx = ((step % 5) + 5) % 5;
+      var midi = (baseMidi || 60) + PENTA[idx] + 12 * Math.min(oct, 3);
+      return 440 * Math.pow(2, (midi - 69) / 12);
+    }
+    function sndHit(){
+      var f = pentaFreq(S.melodyStep, 60);
+      tone(f, .14, "triangle", .11);
+      tone(f * 2, .08, "sine", .045);
+      S.melodyStep++;
+    }
+    function sndWordChord(){
+      /* satisfying resolution: C-E-G-C chord in pentatonic voicing */
+      [60, 64, 67, 72].forEach(function(m, i){
+        tone(440 * Math.pow(2, (m - 69) / 12), .34, "triangle", .09, i * .045);
+      });
+      tone(pentaFreq(0, 48), .4, "sine", .08, 0);
+    }
+    function sndMiss(){ tone(160, .16, "sawtooth", .09, 0, 70); }
+    function sndSave(){ [523, 784].forEach(function(f, i){ tone(f, .12, "square", .07, i * .06); }); }
+    function sndBonus(){ [880, 1174, 1568].forEach(function(f, i){ tone(f, .12, "sine", .08, i * .05); }); }
+    function sndFever(tier){
+      tone(300, .5, "sawtooth", .06, 0, 1600);
+      [523, 659, 784, 1046, 1318].slice(0, 3 + tier).forEach(function(f, i){ tone(f, .16, "square", .06, i * .07); });
+    }
+    function sndCount(final){ tone(final ? 880 : 440, final ? .3 : .12, "square", .09); }
+    /* Rhythm section: while FEVER or higher, a synth kick / hat / bass
+       pattern runs under the melody (8th notes, ~140 BPM). */
+    function beatTick(){
+      if (!S.fever || S.phase !== "playing" || !S.sound){ S.beatStep = 0; return; }
+      var s = S.beatStep++;
+      if (s % 2 === 0) tone(130, .14, "sine", .20, 0, 42);            /* kick */
+      if (S.tier >= 2 || s % 2 === 1) noiseBurst(.04, .05, 7000);      /* hat */
+      if (s % 2 === 0){                                                /* bass */
+        var bf = pentaFreq(Math.floor(s / 2) % 5, 36);
+        tone(bf, .22, "sawtooth", .055);
+      }
+      if (S.tier >= 3 && s % 4 === 2) tone(pentaFreq(7, 72), .1, "square", .04);
+    }
+    function startBeat(){ stopBeat(); S.beatId = setInterval(beatTick, 214); }
+    function stopBeat(){ if (S.beatId) clearInterval(S.beatId); S.beatId = null; S.beatStep = 0; }
+
+    /* ================= Canvas FX (periphery only) =================
+       The word plate rectangle is a protected zone: fireworks target the
+       side gutters / top sky, sparks and beams are culled inside the plate,
+       and lasers / lightning travel along the stage edges. */
+    var cv = $("fx"), ctx = cv.getContext("2d"), DPR = Math.min(window.devicePixelRatio || 1, 2);
+    var sparks = [], rockets = [], beams = [], bolts = [];
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function resize(){ cv.width = innerWidth * DPR; cv.height = innerHeight * DPR; ctx.setTransform(DPR, 0, 0, DPR, 0, 0); }
+    addEventListener("resize", resize); resize();
+    function protectedRect(){
+      var r = wordPlate.getBoundingClientRect();
+      return { x1: r.left - 14, y1: r.top - 14, x2: r.right + 14, y2: r.bottom + 14 };
+    }
+    function inProtected(x, y, pr){ return x > pr.x1 && x < pr.x2 && y > pr.y1 && y < pr.y2; }
+    function firework(x, y, big){
+      var hue = [190, 320, 45, 140, 265, 0][Math.floor(Math.random() * 6)] + Math.random() * 20;
+      var n = big ? 90 : 46, i;
+      for (i = 0; i < n; i++){
+        var a = (Math.PI * 2 * i) / n + Math.random() * .2, sp = (big ? 3.4 : 2.4) * (0.35 + Math.random() * 0.85);
+        sparks.push({ x:x, y:y, vx:Math.cos(a)*sp, vy:Math.sin(a)*sp, life:1, decay:.008 + Math.random()*.012,
+          size: big ? 2.6 : 2, hue: hue + (Math.random()*24 - 12), trail: [] });
+      }
+      noiseBurst(.35, big ? .16 : .08);
+    }
+    function launchFirework(big, side){
+      /* Launch pads sit in the left/right gutters and the top sky so bursts
+         bloom beside the playfield, never on top of the word. */
+      var pr = protectedRect(), x, y;
+      var zone = side || (Math.random() < .5 ? "left" : "right");
+      if (zone === "left") x = 24 + Math.random() * Math.max(pr.x1 - 60, 60);
+      else if (zone === "right") x = Math.min(pr.x2 + 36, innerWidth - 140) + Math.random() * 100;
+      else x = 60 + Math.random() * (innerWidth - 120);
+      if (x < 20) x = 20; if (x > innerWidth - 20) x = innerWidth - 20;
+      y = 56 + Math.random() * Math.max(pr.y1 - 90, 90);
+      rockets.push({ x:x, y:innerHeight + 6, tx:x, ty:y, vy:-(10 + Math.random() * 4), big:!!big,
+        hue:[190,320,45,140][Math.floor(Math.random()*4)] });
+    }
+    function sideCannonBurst(){
+      launchFirework(true, "left"); launchFirework(true, "right");
+    }
+    function burstAt(x, y, color, n){
+      var pr = protectedRect();
+      if (inProtected(x, y, pr)) return;
+      for (var i = 0; i < (n || 10); i++){
+        var a = Math.random() * Math.PI * 2, sp = .6 + Math.random() * 2.6;
+        sparks.push({ x:x, y:y, vx:Math.cos(a)*sp, vy:Math.sin(a)*sp - .6, life:1, decay:.03 + Math.random()*.03,
+          size:1.8, hue:null, color:color, trail: [] });
+      }
+    }
+    function laser(x1, y1, x2, y2, color){ beams.push({ x1:x1, y1:y1, x2:x2, y2:y2, color:color, life:1 }); if (beams.length > 14) beams.shift(); }
+    function sideLaser(key){
+      /* A correct key fires its beam UP the nearest gutter to the sky,
+         so the flash frames the stage instead of crossing the word. */
+      var el = keyEls[key]; if (!el) return;
+      var kr = el.getBoundingClientRect(), pr = protectedRect();
+      var fromLeft = (kr.left + kr.width / 2) < innerWidth / 2;
+      var gx = fromLeft ? Math.max(pr.x1 - 26, 30) : Math.min(pr.x2 + 26, innerWidth - 30);
+      laser(kr.left + kr.width / 2, kr.top, gx, kr.top - 30, FINGER_COLOR[FINGER[key]] || "#22d3ee");
+      laser(gx, kr.top - 30, gx, Math.max(pr.y1 - 60, 30), S.tier >= 2 ? "#ffee58" : (FINGER_COLOR[FINGER[key]] || "#22d3ee"));
+      burstAt(gx, Math.max(pr.y1 - 60, 30), "#ffffff", 5);
+    }
+    function chainLightning(){
+      /* Jagged bolts race from both stage edges out to the side rails and
+         fork as they travel — all inside the gutters. */
+      var sr = stageEl.getBoundingClientRect();
+      [0, 1].forEach(function(side){
+        var x = side ? sr.right + 4 : sr.left - 4;
+        var dir = side ? 1 : -1;
+        var y = sr.top + 20 + Math.random() * (sr.height - 40);
+        var pts = [{ x:x, y:y }], steps = 6, i;
+        for (i = 1; i <= steps; i++){
+          pts.push({ x: x + dir * i * (26 + Math.random() * 18), y: y + (Math.random() * 54 - 27) });
+        }
+        bolts.push({ pts: pts, life: 1, hue: S.tier >= 2 ? 50 : 190 });
+        for (i = 0; i < 2; i++){
+          var bp = pts[2 + Math.floor(Math.random() * 3)];
+          bolts.push({ pts: [bp, { x: bp.x + dir * 22, y: bp.y + (Math.random() < .5 ? -30 : 30) },
+                             { x: bp.x + dir * 44, y: bp.y + (Math.random() * 30 - 15) }], life: .8, hue: 280 });
+        }
+      });
+      noiseBurst(.18, .12, 3200);
+    }
+    function fxLoop(){
+      if (performance.now() < hitStopEnd){ requestAnimationFrame(fxLoop); return; }
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      var i, p, pr = protectedRect();
+      ctx.globalCompositeOperation = "lighter";
+      for (i = beams.length - 1; i >= 0; i--){
+        var b = beams[i]; b.life -= .09;
+        if (b.life <= 0){ beams.splice(i, 1); continue; }
+        var wdt = (S.tier >= 2 ? 8 : 5) * b.life + 1;
+        ctx.strokeStyle = S.tier >= 2 ? "hsl(" + ((performance.now() / 6) % 360) + ",100%,65%)" : b.color;
+        ctx.globalAlpha = b.life * .9;
+        ctx.lineWidth = wdt; ctx.shadowColor = b.color; ctx.shadowBlur = 16;
+        ctx.beginPath(); ctx.moveTo(b.x1, b.y1); ctx.lineTo(b.x2, b.y2); ctx.stroke();
+        ctx.lineWidth = 1.4; ctx.strokeStyle = "#ffffff"; ctx.globalAlpha = b.life;
+        ctx.beginPath(); ctx.moveTo(b.x1, b.y1); ctx.lineTo(b.x2, b.y2); ctx.stroke();
+      }
+      for (i = bolts.length - 1; i >= 0; i--){
+        var bo = bolts[i]; bo.life -= .14;
+        if (bo.life <= 0){ bolts.splice(i, 1); continue; }
+        ctx.strokeStyle = "hsl(" + bo.hue + ",100%,72%)"; ctx.globalAlpha = bo.life;
+        ctx.lineWidth = 3; ctx.shadowColor = "hsl(" + bo.hue + ",100%,60%)"; ctx.shadowBlur = 18;
+        ctx.beginPath(); ctx.moveTo(bo.pts[0].x, bo.pts[0].y);
+        for (var q = 1; q < bo.pts.length; q++) ctx.lineTo(bo.pts[q].x, bo.pts[q].y);
+        ctx.stroke();
+        ctx.lineWidth = 1.2; ctx.strokeStyle = "#fff";
+        ctx.beginPath(); ctx.moveTo(bo.pts[0].x, bo.pts[0].y);
+        for (q = 1; q < bo.pts.length; q++) ctx.lineTo(bo.pts[q].x, bo.pts[q].y);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1; ctx.shadowBlur = 0;
+      for (i = rockets.length - 1; i >= 0; i--){
+        var r = rockets[i]; r.y += r.vy; r.vy += .12;
+        ctx.fillStyle = "hsl(" + r.hue + ",100%,75%)"; ctx.shadowColor = "hsl(" + r.hue + ",100%,60%)"; ctx.shadowBlur = 12;
+        ctx.beginPath(); ctx.arc(r.x, r.y, 2.6, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
+        if (r.y <= r.ty || r.vy > -1.5){ rockets.splice(i, 1); firework(r.x, r.y, r.big); }
+      }
+      for (i = sparks.length - 1; i >= 0; i--){
+        p = sparks[i]; p.life -= p.decay;
+        if (p.life <= 0){ sparks.splice(i, 1); continue; }
+        p.trail.push({ x:p.x, y:p.y }); if (p.trail.length > 5) p.trail.shift();
+        p.x += p.vx; p.y += p.vy; p.vy += .045; p.vx *= .985; p.vy *= .99;
+        if (inProtected(p.x, p.y, pr)) continue; /* never draw over the word plate */
+        var col = p.color || ("hsl(" + p.hue + ",100%,68%)");
+        ctx.strokeStyle = col; ctx.globalAlpha = p.life * .55; ctx.lineWidth = p.size * .7;
+        if (p.trail.length > 1){ ctx.beginPath(); ctx.moveTo(p.trail[0].x, p.trail[0].y); ctx.lineTo(p.x, p.y); ctx.stroke(); }
+        ctx.globalAlpha = p.life; ctx.fillStyle = col;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.size * p.life + .4, 0, 7); ctx.fill();
+      }
+      ctx.globalAlpha = 1; ctx.globalCompositeOperation = "source-over";
+      requestAnimationFrame(fxLoop);
+    }
+    requestAnimationFrame(fxLoop);
+    /* Ambient show: rockets keep going up even between words — the sky
+       above and beside the stage stays alive without touching the text. */
+    setInterval(function(){
+      if (document.hidden) return;
+      if (S.phase === "playing" || S.phase === "menu") launchFirework(false);
+    }, 2600);
+
+    var shakeT = null;
+    function shake(power){
+      if (reduced) return;
+      var dx = (Math.random() * 2 - 1) * power, dy = (Math.random() * 2 - 1) * power;
+      appEl.style.transform = "translate(" + dx + "px," + dy + "px) rotate(" + (Math.random() * .4 - .2) + "deg)";
+      clearTimeout(shakeT);
+      shakeT = setTimeout(function(){ appEl.style.transform = ""; }, 70);
+    }
+    var hitStopEnd = 0;
+    function hitStop(ms){ hitStopEnd = performance.now() + ms; }
+
+    /* ================= Word supply ================= */
+    function shuffled(arr){ var a = arr.slice(), i, j, t; for (i = a.length - 1; i > 0; i--){ j = Math.floor(Math.random() * (i + 1)); t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+    function homePattern(){
+      var pairs = ["fj","dk","sl","a;","fd","jk","ds","lk","as","j;"];
+      var kind = Math.random();
+      if (kind < .4){ var p = pairs[Math.floor(Math.random() * pairs.length)]; return p + p + p; }
+      if (kind < .7){ var s = "", keys = "asdfjkl;", n = 5 + Math.floor(Math.random() * 3), i; for (i = 0; i < n; i++) s += keys[Math.floor(Math.random() * keys.length)]; return s; }
+      var base = ["asdf","jkl;","fdsa",";lkj","fjdk","kdjf"][Math.floor(Math.random() * 6)];
+      return base + base.slice(0, 2);
+    }
+    function buildDeck(){
+      if (S.mode === "home"){
+        var d = shuffled(HOME_WORDS), i; for (i = 0; i < 16; i++) d.push(homePattern());
+        return shuffled(d);
+      }
+      if (S.mode === "full") return shuffled(FULL_WORDS.concat(shuffled(WORDS).slice(0, 18)));
+      if (isJP()) return shuffled(JP_WORDS);
+      return shuffled(WORDS);
+    }
+    function drawWord(){ if (!S.deck.length) S.deck = buildDeck(); return S.deck.pop(); }
+    function setupWord(){
+      S.wordStartAt = performance.now(); S.wordMiss = false; S.wordKeys = 0;
+      if (isJP()){
+        S.kana = S.word;
+        S.tokens = tokenizeKana(S.kana);
+        S.rStates = parserClosure(S.tokens, [{ idx: 0, partial: "" }]);
+        S.rTyped = "";
+      } else { S.pos = 0; }
+    }
+
+    /* ================= Rendering ================= */
+    function currentSpan(){
+      if (isJP()) return wordBox.children[parserDoneIdx(S.rStates)] || null;
+      return wordBox.children[S.pos] || null;
+    }
+    function renderWord(){
+      wordBox.innerHTML = "";
+      wordBox.className = "word" + (isJP() ? " jp" : "");
+      var i, sp;
+      if (isJP()){
+        var done = parserDoneIdx(S.rStates);
+        for (i = 0; i < S.tokens.length; i++){
+          sp = document.createElement("span");
+          sp.className = "ch" + (i < done ? " done" : i === done ? " now" : "");
+          sp.textContent = S.tokens[i];
+          wordBox.appendChild(sp);
+        }
+        nextWordVal.textContent = S.nextKana || "—";
+      } else {
+        for (i = 0; i < S.word.length; i++){
+          sp = document.createElement("span");
+          sp.className = "ch" + (i < S.pos ? " done" : i === S.pos ? " now" : "");
+          sp.textContent = S.word[i];
+          wordBox.appendChild(sp);
+        }
+        nextWordVal.textContent = S.next || "—";
+      }
+      renderRomajiLine();
+      updateGuide();
+    }
+    function renderRomajiLine(){
+      if (!isJP()){ romajiLine.innerHTML = ""; return; }
+      var done = parserDoneIdx(S.rStates);
+      var rest = "";
+      for (var i = done; i < S.tokens.length; i++) rest += romajiOptions(S.tokens, i)[0];
+      var cands = parserCurrentCandidates(S.tokens, S.rStates);
+      romajiLine.innerHTML = "<span class='typed'>" + S.rTyped + "</span>" +
+        (cands.length ? "<span class='cand'>［" + S.tokens[done] + "＝" + cands.join(" / ") + "］</span>" : "") +
+        "<span class='rest'>" + rest + "</span>";
+    }
+    function clearNextKey(){ Object.keys(keyEls).forEach(function(k){ keyEls[k].classList.remove("next"); }); }
+    function updateGuide(){
+      clearNextKey();
+      if (S.phase !== "playing" && S.phase !== "countdown") return;
+      var i, f;
+      if (isJP()){
+        if (!S.tokens.length) return;
+        var nexts = parserNextChars(S.tokens, S.rStates);
+        var firstFinger = null;
+        for (i = 0; i < nexts.length; i++){
+          if (keyEls[nexts[i]]){ keyEls[nexts[i]].classList.add("next"); if (!firstFinger) firstFinger = FINGER[nexts[i]]; }
+        }
+        var done = parserDoneIdx(S.rStates), tok = S.tokens[done];
+        if (tok){
+          var cands = parserCurrentCandidates(S.tokens, S.rStates);
+          fingerGuide.innerHTML = (firstFinger ? "<span class='dot' style='color:" + FINGER_COLOR[firstFinger] + "'></span>" : "") +
+            "<span class='keyname'>" + tok + "</span>" + cands.join(" / ") + " のどれかでOK" +
+            (tok === "ん" ? "（ん＝ n / nn 両対応）" : "");
+        }
+        return;
+      }
+      var ch = S.word[S.pos]; if (!ch) return;
+      f = FINGER[ch];
+      if (keyEls[ch]) keyEls[ch].classList.add("next");
+      if (f){
+        fingerGuide.innerHTML = "<span class='dot' style='color:" + FINGER_COLOR[f] + "'></span>" +
+          "<span class='keyname'>" + ch + "</span>" + FINGER_NAME[f] + " で打とう";
+      }
+    }
+    function updateHUD(){
+      scoreVal.textContent = S.score.toLocaleString();
+      comboVal.textContent = S.graceUntil ? S.graceCombo : S.combo;
+      var total = S.correct + S.miss;
+      accVal.textContent = (total ? Math.round(S.correct / total * 100) : 100) + "%";
+      var elapsed = GAME_TIME - S.timeLeft;
+      kpmVal.textContent = elapsed > 2 ? Math.round(S.correct / (elapsed / 60)) : 0;
+      if (S.fever){
+        feverFill.style.width = (S.feverLeft / FEVER_TIME * 100) + "%";
+        feverHint.textContent = TIER_NAME[S.tier] + " 中！ スコア×" + currentMult();
+        feverLabel.textContent = S.tier >= 3 ? "GOD MODE" : S.tier >= 2 ? "HYPER FEVER" : "FEVER";
+      } else {
+        feverFill.style.width = Math.min(S.combo / FEVER_COMBO, 1) * 100 + "%";
+        feverHint.textContent = (FEVER_COMBO - S.combo) + " COMBOで点火";
+        feverLabel.textContent = "FEVER GAUGE";
+      }
+      multBadge.textContent = TIER_NAME[S.tier];
+    }
+    function floatScore(text, side, size, color){
+      var el = document.createElement("div");
+      el.className = "floatScore"; el.textContent = text;
+      el.style[side || "right"] = "10px";
+      el.style.fontSize = (size || 20) + "px"; if (color) el.style.color = color;
+      floatLayer.appendChild(el);
+      setTimeout(function(){ el.remove(); }, 850);
+    }
+    function showBanner(el, text, cls){
+      if (text) el.textContent = text;
+      el.className = "banner" + (cls ? " " + cls : "");
+      void el.offsetWidth; el.classList.add("show");
+    }
+
+    /* ================= Time bonus ================= */
+    function addTimeBonus(sec, fromLeft){
+      var fly = document.createElement("div");
+      fly.className = "timeFly"; fly.textContent = "+" + sec + "秒";
+      fly.style.top = "38%";
+      fly.style[fromLeft ? "left" : "right"] = "64px";
+      document.body.appendChild(fly);
+      var tr = timebar.getBoundingClientRect();
+      var fr = fly.getBoundingClientRect();
+      var dx = (tr.left + tr.width / 2) - (fr.left + fr.width / 2);
+      var dy = tr.top - fr.top;
+      fly.animate([
+        { transform: "translate(0,0) scale(1)", opacity: 1 },
+        { transform: "translate(" + dx + "px," + dy + "px) scale(1.35)", opacity: 1 },
+        { transform: "translate(" + dx + "px," + dy + "px) scale(.6)", opacity: 0 }
+      ], { duration: 520, easing: "cubic-bezier(.2,.8,.3,1)" });
+      sndBonus();
+      setTimeout(function(){
+        fly.remove();
+        if (S.phase !== "playing") return;
+        S.timeLeft = Math.min(S.timeLeft + sec, GAME_TIME + 30);
+        timebar.classList.remove("bonusFlash"); void timebar.offsetWidth; timebar.classList.add("bonusFlash");
+        timeVal.classList.add("pop"); setTimeout(function(){ timeVal.classList.remove("pop"); }, 250);
+      }, 500);
+    }
+
+    /* ================= Fever tiers ================= */
+    function tierForCombo(c){ return c >= GOD_COMBO ? 3 : c >= HYPER_COMBO ? 2 : c >= FEVER_COMBO ? 1 : 0; }
+    function applyTierClasses(){
+      document.body.classList.toggle("fever", S.tier >= 1);
+      document.body.classList.toggle("hyper", S.tier >= 2);
+      document.body.classList.toggle("god", S.tier >= 3);
+    }
+    function startFever(){
+      S.fever = true; S.feverLeft = FEVER_TIME; S.feverCount++; S.tier = 1;
+      applyTierClasses();
+      showBanner(feverBanner, "FEVER!! ×3", "");
+      sndFever(1); shake(11); hitStop(110);
+      sideCannonBurst(); setTimeout(sideCannonBurst, 200);
+      startBeat(); startCannons();
+      updateHUD();
+    }
+    function escalateTier(newTier){
+      S.tier = newTier;
+      S.feverLeft = Math.min(S.feverLeft + 6, FEVER_TIME + 6);
+      applyTierClasses();
+      if (newTier === 2){
+        showBanner(feverBanner, "HYPER FEVER!! ×5", "hyper");
+        floatScore("HYPER!", "left", 26, "#ffee58");
+      } else if (newTier === 3){
+        showBanner(feverBanner, "GOD MODE!! ×8", "god");
+        floatScore("GOD!!", "left", 30, "#ffd94a");
+      }
+      sndFever(newTier); shake(13); hitStop(120);
+      sideCannonBurst(); chainLightning();
+      addTimeBonus(2, newTier % 2 === 0);
+      updateHUD();
+    }
+    function startCannons(){
+      stopCannons();
+      S.cannonId = setInterval(function(){
+        if (!S.fever || S.phase !== "playing") return;
+        if (S.tier >= 2) sideCannonBurst();       /* HYPER+: cannons keep firing */
+        else if (Math.random() < .5) launchFirework(false);
+        if (S.tier >= 3 && Math.random() < .6) chainLightning();
+      }, 1500);
+    }
+    function stopCannons(){ if (S.cannonId) clearInterval(S.cannonId); S.cannonId = null; }
+    function endFever(){
+      S.fever = false; S.feverLeft = 0; S.tier = 0;
+      applyTierClasses(); stopBeat(); stopCannons();
+      updateHUD();
+    }
+
+    /* ================= Grace (near-miss rescue) ================= */
+    function enterGrace(){
+      S.graceCombo = S.combo;
+      S.graceUntil = performance.now() + GRACE_MS;
+      comboCell.classList.add("grace");
+      comboLabel.textContent = "ピンチ！ 正打でコンボ復活";
+      clearTimeout(S.graceTimer);
+      S.graceTimer = setTimeout(expireGrace, GRACE_MS);
+    }
+    function expireGrace(){
+      if (!S.graceUntil) return;
+      S.graceUntil = 0; S.graceCombo = 0;
+      comboCell.classList.remove("grace");
+      comboLabel.textContent = "COMBO";
+      S.combo = 0; S.melodyStep = 0;      /* melody resets only when the combo truly dies */
+      if (S.fever) endFever();
+      updateHUD(); updateGuide();
+    }
+    function rescueGrace(){
+      S.combo = S.graceCombo;
+      S.graceUntil = 0; S.graceCombo = 0;
+      clearTimeout(S.graceTimer);
+      comboCell.classList.remove("grace");
+      comboLabel.textContent = "COMBO";
+      showBanner(judgeBanner, "SAVED!!", "");
+      sndSave();
+      floatScore("RESCUE!", "left", 22, "#4ade80");
+    }
+
+    /* ================= Game flow ================= */
+    function startGame(mode){
+      S.mode = mode;
+      S.score = 0; S.combo = 0; S.maxCombo = 0; S.correct = 0; S.miss = 0; S.wordsDone = 0;
+      S.fever = false; S.feverLeft = 0; S.feverCount = 0; S.tier = 0; S.melodyStep = 0;
+      S.graceUntil = 0; S.graceCombo = 0; clearTimeout(S.graceTimer);
+      comboCell.classList.remove("grace"); comboLabel.textContent = "COMBO";
+      S.timeLeft = GAME_TIME; S.pos = 0;
+      S.deck = buildDeck();
+      if (isJP()){ S.kana = drawWord(); S.word = S.kana; S.nextKana = drawWord(); S.next = S.nextKana; }
+      else { S.word = drawWord(); S.next = drawWord(); }
+      applyTierClasses(); stopBeat(); stopCannons();
+      $("startOverlay").classList.add("hidden");
+      $("resultOverlay").classList.add("hidden");
+      timebar.classList.remove("low");
+      setupWord(); renderWord(); updateHUD();
+      timeFill.style.width = "100%"; timeVal.textContent = GAME_TIME.toFixed(1);
+      S.phase = "countdown";
+      var num = $("countNum"), co = $("countOverlay");
+      co.classList.remove("hidden");
+      var steps = ["3", "2", "1", "GO!"];
+      steps.forEach(function(txt, i){
+        setTimeout(function(){
+          num.textContent = txt;
+          num.classList.remove("zoom"); void num.offsetWidth; num.classList.add("zoom");
+          sndCount(txt === "GO!");
+          if (txt === "GO!") setTimeout(function(){ co.classList.add("hidden"); beginPlay(); }, 420);
+        }, i * 720);
+      });
+    }
+    function beginPlay(){
+      S.phase = "playing";
+      S.wordStartAt = performance.now();
+      S.lastTick = performance.now();
+      clearInterval(S.timerId);
+      S.timerId = setInterval(tick, 50);
+      updateGuide();
+    }
+    function tick(){
+      var now = performance.now(), dt = (now - S.lastTick) / 1000; S.lastTick = now;
+      if (performance.now() < hitStopEnd) return;
+      S.timeLeft -= dt;
+      if (S.fever){
+        S.feverLeft -= dt;
+        if (S.feverLeft <= 0 && !S.graceUntil) endFever();
+      }
+      if (S.timeLeft <= 10.05) timebar.classList.add("low");
+      if (S.timeLeft <= 0){ S.timeLeft = 0; finishGame(); return; }
+      timeFill.style.width = Math.min(S.timeLeft / GAME_TIME * 100, 100) + "%";
+      timeVal.textContent = S.timeLeft.toFixed(1);
+      updateHUD();
+    }
+    function finishGame(){
+      clearInterval(S.timerId);
+      S.phase = "result";
+      if (S.graceUntil){ S.graceUntil = 0; comboCell.classList.remove("grace"); comboLabel.textContent = "COMBO"; }
+      clearNextKey();
+      if (S.fever) endFever();
+      var total = S.correct + S.miss;
+      var acc = total ? S.correct / total : 1;
+      var kpm = Math.round(S.correct / (GAME_TIME / 60));
+      var rank, comment;
+      if (kpm >= 280 && acc >= .9){ rank = "S"; comment = "神の指さばき。ホームポジションが身体に染み込んでいる！"; }
+      else if (kpm >= 220){ rank = "A"; comment = "すさまじい速度！あと一歩で神域。"; }
+      else if (kpm >= 170){ rank = "B"; comment = "いいリズム！コンボを切らさなければもっと伸びる。"; }
+      else if (kpm >= 120){ rank = "C"; comment = "基礎はできてきた。指の住所を意識してもう一回！"; }
+      else { rank = "D"; comment = "まずはホームポジション特訓で、見ないで打てる指を増やそう。"; }
+      $("rankLetter").textContent = rank;
+      $("rankLetter").className = rank === "S" ? "s" : "";
+      $("finalScore").textContent = S.score.toLocaleString();
+      $("rankComment").textContent = comment;
+      $("stCombo").textContent = S.maxCombo;
+      $("stAcc").innerHTML = Math.round(acc * 100) + "<small>%</small>";
+      $("stKpm").innerHTML = kpm + "<small> 打/分</small>";
+      $("stWords").innerHTML = S.wordsDone + "<small> 語</small>";
+      $("stFever").innerHTML = S.feverCount + "<small> 回</small>";
+      $("stKeys").innerHTML = S.correct + "<small> / " + S.miss + "</small>";
+      $("stMode").textContent = MODE_NAME[S.mode];
+      var weak = null, wmax = 0;
+      Object.keys(S.missByKey).forEach(function(k){ if (S.missByKey[k] > wmax){ wmax = S.missByKey[k]; weak = k; } });
+      $("stWeak").textContent = weak ? (weak.toUpperCase() + "（" + (FINGER_NAME[FINGER[weak]] || "ローマ字") + "）×" + wmax) : "なし（ノーミス級）";
+      $("resultOverlay").classList.remove("hidden");
+      var n = rank === "S" ? 7 : rank === "A" ? 5 : 3, i;
+      for (i = 0; i < n; i++) setTimeout(function(){ launchFirework(true); }, i * 220);
+      tone(523, .15, "triangle", .1); tone(784, .2, "triangle", .1, .1);
+    }
+    function quitToMenu(){
+      clearInterval(S.timerId);
+      S.phase = "menu";
+      if (S.graceUntil){ S.graceUntil = 0; comboCell.classList.remove("grace"); comboLabel.textContent = "COMBO"; }
+      if (S.fever) endFever();
+      stopBeat(); stopCannons();
+      clearNextKey();
+      $("countOverlay").classList.add("hidden");
+      $("resultOverlay").classList.add("hidden");
+      $("startOverlay").classList.remove("hidden");
+      wordBox.innerHTML = "<span style='color:var(--dim); font-size:.42em; letter-spacing:.14em;'>モードを選んでスタート</span>";
+      romajiLine.innerHTML = "";
+      fingerGuide.textContent = "キーボードのキーを押すと光ります。まずはモードを選んでください。";
+    }
+
+    /* ================= Typing logic ================= */
+    function advanceWord(){
+      S.wordsDone++;
+      var dur = (performance.now() - S.wordStartAt) / 1000;
+      var keys = Math.max(S.wordKeys, 1);
+      var fast = dur / keys < 0.34;
+      var perfect = !S.wordMiss && fast;
+      var bonus = (50 + keys * 5) * currentMult();
+      S.score += bonus;
+      sndWordChord(); shake(S.fever ? 7 : 4); hitStop(60);
+      showBanner(judgeBanner, perfect ? "PERFECT!!" : "GREAT!", perfect ? "perfect" : "");
+      floatScore("WORD +" + bonus, "right", 22, "#22d3ee");
+      chainLightning();
+      launchFirework(false, S.wordsDone % 2 ? "left" : "right");
+      if (S.fever || S.wordsDone % 5 === 0) launchFirework(true);
+      if (perfect) addTimeBonus(1, S.wordsDone % 2 === 0);
+      if (isJP()){ S.kana = S.nextKana; S.word = S.kana; S.nextKana = drawWord(); S.next = S.nextKana; }
+      else { S.word = S.next; S.next = drawWord(); }
+      setupWord();
+    }
+    function onCorrectKey(key){
+      var span = currentSpan();
+      if (S.graceUntil) rescueGrace();
+      S.combo++; S.correct++; S.wordKeys++;
+      if (S.combo > S.maxCombo) S.maxCombo = S.combo;
+      var pts = (10 + Math.min(S.combo, 50)) * currentMult();
+      S.score += pts;
+      if (span){ span.classList.add("hit"); }
+      sideLaser(key);
+      var kr = keyEls[key] ? keyEls[key].getBoundingClientRect() : null;
+      if (kr) burstAt(kr.left + kr.width / 2, kr.top - 4, S.tier >= 3 ? "#ffd94a" : "#4ade80", S.fever ? 10 : 6);
+      floatScore("+" + pts, Math.random() < .5 ? "left" : "right", S.fever ? 23 : 17, S.fever ? "#ffc53d" : null);
+      sndHit();
+      comboVal.classList.remove("pop"); void comboVal.offsetWidth; comboVal.classList.add("pop");
+      if (S.combo % 25 === 0){
+        showBanner(comboBanner, S.combo + " COMBO!");
+        sideCannonBurst(); shake(7); hitStop(50);
+        addTimeBonus(1, S.combo % 50 === 0);
+      }
+      if (!S.fever && S.combo >= FEVER_COMBO) startFever();
+      else if (S.fever){
+        var nt = tierForCombo(S.combo);
+        if (nt > S.tier) escalateTier(nt);
+      }
+    }
+    function onWordCompleteCheck(){
+      renderWord(); updateHUD();
+    }
+    function onMissKey(key, expected){
+      S.miss++; S.wordMiss = true;
+      if (expected) S.missByKey[expected] = (S.missByKey[expected] || 0) + 1;
+      sndMiss();
+      missFlash.classList.remove("on"); void missFlash.offsetWidth; missFlash.classList.add("on");
+      if (keyEls[key]){ keyEls[key].classList.add("wrong"); setTimeout(function(){ keyEls[key].classList.remove("wrong"); }, 160); }
+      if (S.graceUntil){
+        /* a second miss inside the grace window ends the rescue */
+        expireGrace(); shake(12);
+      } else if (S.combo >= 5){
+        enterGrace(); shake(6);
+      } else {
+        S.combo = 0; S.melodyStep = 0;
+        if (S.fever) endFever();
+        shake(7);
+      }
+      updateHUD(); updateGuide();
+    }
+
+    document.addEventListener("keydown", function(e){
+      audio();
+      var key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      if (keyEls[key]){
+        keyEls[key].classList.add("pressed");
+        setTimeout(function(){ keyEls[key].classList.remove("pressed"); }, 90);
+      }
+      if (S.phase === "result" && e.key === "Enter"){ startGame(S.mode); return; }
+      if (S.phase !== "playing") return;
+      if (e.key === "Escape"){ quitToMenu(); return; }
+      if (e.key.length !== 1) return;
+      e.preventDefault();
+      if (isJP()){
+        var fed = parserFeed(S.tokens, S.rStates, key);
+        if (fed){
+          S.rStates = fed; S.rTyped += key;
+          var completed = parserComplete(S.tokens, S.rStates);
+          onCorrectKey(key);
+          if (completed){ advanceWord(); }
+          onWordCompleteCheck();
+        } else {
+          var doneIdx = parserDoneIdx(S.rStates);
+          onMissKey(key, S.tokens[doneIdx] || key);
+          renderRomajiLine();
+        }
+      } else {
+        var expected = S.word[S.pos];
+        if (key === expected){
+          onCorrectKey(key);
+          S.pos++;
+          if (S.pos >= S.word.length) advanceWord();
+          onWordCompleteCheck();
+        } else onMissKey(key, expected);
+      }
+    });
+
+    /* ================= Bindings ================= */
+    Array.prototype.forEach.call(document.querySelectorAll(".modeBtn"), function(btn){
+      btn.addEventListener("click", function(){ audio(); startGame(btn.getAttribute("data-mode")); });
+    });
+    $("retryBtn").addEventListener("click", function(){ startGame(S.mode); });
+    $("toMenuBtn").addEventListener("click", quitToMenu);
+    $("soundBtn").addEventListener("click", function(){
+      S.sound = !S.sound;
+      this.textContent = "サウンド：" + (S.sound ? "ON" : "OFF");
+      if (S.sound) sndWordChord();
+    });
+    updateHUD();
+    </script>
+  </body>
+</html>

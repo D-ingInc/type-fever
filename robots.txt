@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# ↓ 公開したら、sitemap.xml のURLを自分のドメインに差し替えてください
+Sitemap: https://d-inginc.github.io/type-fever/sitemap.xml
